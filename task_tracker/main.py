@@ -65,16 +65,26 @@ class NewParser():
             else:
                 try:
                     args = parser.parse_args(text)
-                    self.to_json(args)
+                    action = {
+                        "add": lambda: self.add_task(' '.join(args.add) if args.add else None)
+                    }
+
+                    for action, func in action.items():
+                        if func:
+                            func()
+
                     
                 except SystemExit:
                     pass
 
-    def to_json(self, args):
-        print(f'Add = {vars(args)}')
-        object_json = json.dumps(vars(args), indent=2)
+    def add_task(self, task):
+        new_task = {
+            task: f"{task}"
+        }
+        object_json = json.dumps(new_task, indent=2)
         with open('data.json', "w") as file:
             file.write(object_json)
+        
 
         
 # Arrumar como é passado para JSON
