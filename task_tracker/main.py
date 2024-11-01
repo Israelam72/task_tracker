@@ -79,7 +79,7 @@ class NewParser():
 
     def add_task(self, task):
         new_task = {
-            task: f"{task}"
+            "task": f"{task}"
         }
         object_json = json.dumps(new_task, indent=2)
         with open('data.json', "w") as file:
@@ -88,7 +88,8 @@ class NewParser():
 
         
 # Arrumar como é passado para JSON
-# Fazer função para cada ação, add, delete ...(chamar essas açoes dentro da função "to_json")
+# adicionar id na task
+# criar json se não existe
 #MUDAR DE BRANCH!!!!!
 
 def main():
