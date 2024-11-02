@@ -1,6 +1,9 @@
 import argparse
 import json
 import time
+import os
+
+path = './data.json'
 
 parser = argparse.ArgumentParser(prog='taskctl', description='Manage your tasks!')
 parser.add_argument('taskctl', help='Manage your tasks with this command')
@@ -78,16 +81,22 @@ class NewParser():
                     pass
 
     def add_task(self, task):
-        new_task = {
-            "task": f"{task}"
-        }
-        object_json = json.dumps(new_task, indent=2)
-        with open('data.json', "w") as file:
-            file.write(object_json)
+        if os.path.exists(path):
+            with open('data.json') as file:
+                task_dict = json.load(file)
+                print(task_dict)
+        else:
+            new_task = {
+                "task": f"{task}"
+            }
+            object_json = json.dumps(new_task, indent=2)
+            with open('data.json', "w") as file:
+                file.write(object_json)
         
 
         
 # Arrumar como é passado para JSON
+# checar por que JSON esta sendo criado no lugar errado!!
 # adicionar id na task
 # criar json se não existe
 #MUDAR DE BRANCH!!!!!
