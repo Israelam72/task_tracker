@@ -1,16 +1,16 @@
 import os
-import json
 import datetime
+from utils.json_handler import json_dump, json_load
 
 path = './data.json'
 
 
 def add_task(task):
-        if not os.path.exists(path):
+        if not os.path.exists(path) or not json_load()['tasks']:
             first_task = {
                 "tasks": [
                     {
-                        "task": f"{task}",
+                        "task": task,
                         "id": 1,
                         "status": "todo",
                         "createdAt": str(datetime.date.today()),
@@ -20,22 +20,21 @@ def add_task(task):
                 ]
             }
 
-            with open(path, "w") as file:
-                json.dump(first_task, file, indent=2)
+            json_dump(first_task)
+            print("Your first task has been created!")
 
         else:
-            with open(path, "r") as file:
-                task_dict = json.load(file)
+            task_dict = json_load()
 
-                new_task = {
-                    "task": f"{task}",
-                        "id": len(task_dict["tasks"]) + 1,
-                        "status": "todo",
-                        "createdAt": str(datetime.date.today()),
-                        "updatedAt": str(datetime.date.today())
-                }
+            new_task = {
+                "task": task,
+                "id": task_dict['tasks'][-1]["id"] + 1,
+                "status": "todo",
+                "createdAt": str(datetime.date.today()),
+                "updatedAt": str(datetime.date.today())
+            }
                 
-                task_dict["tasks"].append(new_task)
-                
-                with open(path, "w") as file:
-                    json.dump(task_dict, file, indent=2)
+            task_dict["tasks"].append(new_task)
+
+            json_dump(task_dict)
+            print("A new task has been added!")    

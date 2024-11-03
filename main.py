@@ -1,5 +1,6 @@
 import time
 from utils.add_task import add_task
+from utils.delete_task import delete_task
 from utils.parser_config import create_parser
 
 class NewParser():
@@ -16,7 +17,8 @@ class NewParser():
                 try:
                     args = create_parser().parse_args(text)
                     action = {
-                        "add": add_task(' '.join(args.add) if args.add else None)
+                        "add": add_task(' '.join(args.add)) if args.add else None,
+                        "delete": delete_task(args.delete) if args.delete else None,
                     }
 
                     for action, func in action.items():
@@ -26,9 +28,11 @@ class NewParser():
                     
                 except SystemExit:
                     pass
-
-# criar arquivos para cara função: update, delete, list...
-#MUDAR DE BRANCH!!!!!
+"""
+- criar arquivos para cada função: update, list, mark in progress, mark done;
+- quando criar o update, pensar da mesma forma que foi criada o delete
+- MUDAR DE BRANCH!!!!!
+"""
 
 def main():
 
