@@ -42,14 +42,14 @@ def create_parser():
         action='store_true',
         help='List all done tasks')
     group.add_argument(
-        '-ln',
-        '--list-all-not',
-        action='store_true',
-        help='List all tasks that are not done')
-    group.add_argument(
         '-lp',
         '--list-all-progress',
         action='store_true',
         help='List all in progress tasks')
+    group.add_argument(
+        '-ln',
+        '--list-all-not',
+        action='store_true',
+        help='List all tasks that are not done')
     
     return parser
