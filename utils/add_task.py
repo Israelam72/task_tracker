@@ -1,8 +1,6 @@
 import os
 import datetime
-from utils.json_handler import json_dump, json_load
-
-path = './data.json'
+from utils.json_handler import json_dump, json_load, path
 
 
 def add_task(task):
