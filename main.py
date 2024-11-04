@@ -31,8 +31,10 @@ class NewParser():
                 except SystemExit:
                     pass
 """
-- criar arquivos para cada função: update, list, mark in progress, mark done;
+- criar arquivos para cada função: list, mark in progress, mark done;
 - quando criar o update, pensar da mesma forma que foi criada o delete
+- ULTIMA coisa planejada a se fazer: tratar saída da função de listar, de adição ou de update no terminal, 
+   mostrando as tasks de forma organizada.
 - MUDAR DE BRANCH!!!!!
 """
 
