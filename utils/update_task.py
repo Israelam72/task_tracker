@@ -8,7 +8,7 @@ def update_task(task_id):
         print(f"The task with the given id: {task_id}, doesn't exist, try again.")
 
     else:
-        task_update = input('$ ')
+        task_update = input('$ Task: ')
 
         for task in task_dict['tasks']: 
             if task['id'] == task_id:
