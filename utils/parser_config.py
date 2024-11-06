@@ -48,8 +48,8 @@ def create_parser():
         help='List all in progress tasks')
     group.add_argument(
         '-ln',
-        '--list-all-not',
+        '--list-all-todo',
         action='store_true',
-        help='List all tasks that are not done')
+        help='List all tasks that are marked as todo')
     
     return parser
