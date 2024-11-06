@@ -8,11 +8,11 @@ def add_task(task):
             first_task = {
                 "tasks": [
                     {
-                        "task": task,
-                        "id": 1,
-                        "status": "todo",
-                        "createdAt": str(datetime.date.today()),
-                        "updatedAt": str(datetime.date.today())
+                        "Task": task,
+                        "Id": 1,
+                        "Status": "todo",
+                        "Created at": str(datetime.date.today()),
+                        "Updated at": str(datetime.date.today())
                     }
                     
                 ]
@@ -25,11 +25,11 @@ def add_task(task):
             task_dict = json_load()
 
             new_task = {
-                "task": task,
-                "id": task_dict['tasks'][-1]["id"] + 1,
-                "status": "todo",
-                "createdAt": str(datetime.date.today()),
-                "updatedAt": str(datetime.date.today())
+                "Task": task,
+                "Id": task_dict['tasks'][-1]["Id"] + 1,
+                "Status": "todo",
+                "Created at": str(datetime.date.today()),
+                "Updated at": str(datetime.date.today())
             }
                 
             task_dict["tasks"].append(new_task)
