@@ -3,7 +3,7 @@ from utils.add_task import add_task
 from utils.delete_task import delete_task
 from utils.update_task import update_task
 from utils.mark_task import mark_progress_task, mark_done_task
-from utils.list import list_all
+from utils.list import list_all, list_done, list_todo, list_progress
 from utils.parser_config import create_parser
 
 class NewParser():
@@ -44,7 +44,10 @@ class NewParser():
             "update": lambda: update_task(args.update) if args.update else None,
             "mark_progress": lambda: mark_progress_task(args.mark_progress) if args.mark_progress else None,
             "mark_done": lambda: mark_done_task(args.mark_done) if args.mark_done else None,
-            "list": lambda: list_all() if args.list_all else None
+            "list": lambda: list_all() if args.list_all else None,
+            "list_done": lambda: list_done() if args.list_all_done else None,
+            "list_todo": lambda: list_todo() if args.list_all_todo else None,
+            "list_progress": lambda: list_progress() if args.list_all_progress else None,
         }
 
         for action, func in action.items():
@@ -53,7 +56,6 @@ class NewParser():
 
 
 """
-- criar arquivos para cada função: list-done, list-todo, list-progress;
 - quando listar, pesquisar uma maneira de ficar mais organizado
 - ULTIMA coisa planejada a se fazer: tratar saída da função de listar, de adição ou de update no terminal, 
    mostrando as tasks de forma organizada.
