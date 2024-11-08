@@ -54,14 +54,6 @@ class NewParser():
             if func:
                 func()
 
-
-"""
-- quando listar, pesquisar uma maneira de ficar mais organizado
-- ULTIMA coisa planejada a se fazer: tratar saída da função de listar, de adição ou de update no terminal, 
-   mostrando as tasks de forma organizada.
-- MUDAR DE BRANCH!!!!!
-"""
-
 def main():
 
     result = NewParser()

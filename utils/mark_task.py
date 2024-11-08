@@ -1,5 +1,6 @@
 import datetime
 from utils.json_handler import json_dump, json_load
+from utils.list import make_list
 
 def mark_progress_task(task_id):
 
@@ -11,11 +12,15 @@ def mark_progress_task(task_id):
     else:
         for task in task_dict['tasks']: 
             if task['Id'] == task_id:
-                task["Status"] = "progress"
+                prev_status = task["Status"]
+                task["Status"] = "in progress"
                 task["Updated at"] = str(datetime.date.today())
+                new_status = task
+                break
 
         json_dump(task_dict)
-        print(f'Your task has been marked successfully from {task["Status"]} to "progress"')
+        print(f'Your task has been marked successfully from {prev_status} to "in progress"')
+        make_list(new_status) 
 
 def mark_done_task(task_id):
 
@@ -27,8 +32,13 @@ def mark_done_task(task_id):
     else:
         for task in task_dict['tasks']: 
             if task['Id'] == task_id:
+                prev_status = task["Status"]
                 task["Status"] = "done"
                 task["Updated at"] = str(datetime.date.today())
+                new_status = task
+                break
 
         json_dump(task_dict)
-        print(f'Your task has been marked successfully from {task["Status"]} to "done"')
+        print(f'Your task has been marked successfully from {prev_status} to "done"')
+        make_list(new_status) 
+
