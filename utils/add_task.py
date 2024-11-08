@@ -1,6 +1,7 @@
 import os
 import datetime
 from utils.json_handler import json_dump, json_load, path
+from utils.list import make_list
 
 
 def add_task(task):
@@ -35,4 +36,5 @@ def add_task(task):
             task_dict["tasks"].append(new_task)
 
             json_dump(task_dict)
-            print("A new task has been added!")    
+            print("A new task has been added!")
+            make_list(new_task)    
