@@ -1,15 +1,54 @@
 # Task Manager CLI
 
-Este é um projeto simples em Python para gerenciar e acompanhar o progresso das suas tarefas.
+This is a simple Python project to manage and track your tasks.
 
-## Descrição
+## Description
 
-O **Task Manager CLI** permite adicionar, atualizar, deletar e listar tarefas, além de marcar o status de cada tarefa como "em progresso" ou "concluída".
-Esse projeto foi desenvolvido para facilitar o gerenciamento e acompanhamento de atividades de forma prática no terminal.
+The **Task Manager CLI** allows you to add, update, delete, and list tasks, as well as mark each task's status as "in progress" or "done." 
+This project was created to make it easy to manage and keep track of tasks directly from the terminal.
 
-## Como começar
+## Clone
+```bash
+git clone https://github.com/Israelam72/task_tracker.git
+```
 
-Para iniciar o Task Manager CLI, execute o seguinte comando:
+## Getting Started
 
+To start the Task Manager CLI, run the following command:
 ```bash
 python main.py
+```
+
+## Examples
+### Add a task:
+```bash
+taskctl -a "Study Python"
+```
+
+### Update a task:
+```bash
+taskctl -u 1 "Study advanced Python"
+```
+
+### Mark a task as "in progress":
+```bash
+taskctl -mp 1
+```
+
+### Mark a task as "done":
+```bash
+taskctl -md 1
+```
+
+### List all tasks:
+```bash
+taskctl -l
+```
+### To see more:
+```bash
+taskctl -h
+````
+
+# Requirements
+Python 3.x
+
